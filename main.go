@@ -1,9 +1,10 @@
 package main
 
-import (
-	"fmt"
-)
+import "golang_grafana_struct/passage"
 
 func main() {
-	fmt.Println("Starting...")
+	passageService, _ := InitializePassageService()
+
+	query := passage.GetPassageQuery{UID: "123"}
+	passageService.GetPassage(query)
 }

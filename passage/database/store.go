@@ -6,13 +6,13 @@ import (
 )
 
 type PassageStore struct {
-	store db.DB
+	store db.IDB
 }
 
 // PassageStore implements the Store interface
 var _ passage.Store = (*PassageStore)(nil)
 
-func ProvidePassageStore(db db.DB) (passage.Store, error) {
+func ProvidePassageStore(db db.IDB) (passage.Store, error) {
 	s := &PassageStore{store: db}
 
 	return s, nil
